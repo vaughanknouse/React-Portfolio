@@ -92,7 +92,7 @@ After completing the installation, follow these steps to use the React Portfolio
 1. **Start the server**: Invoke the application using the following command:
 
    ```bash
-    npm start
+    npm run dev
    ```
 
 2. **Navigate to the Application**: Open a browser and navigate to <http://localhost:3000>.
@@ -101,7 +101,7 @@ After completing the installation, follow these steps to use the React Portfolio
 
 The following screenshots demonstrate the application's functionality and appearance:
 
-**Homepage/About Me Page:**
+**About Me Page:**
 
 ![Shows image of the Homepage/About Me Page.](assets/images/aboutme-screenshot.png)
 
@@ -109,7 +109,7 @@ The following screenshots demonstrate the application's functionality and appear
 
 ![Shows image of the Portfolio Page.](assets/images/portfolio-screenshot.png)
 
-**Contact Me Page:**
+**Contact Page:**
 
 ![Shows image of the Contact Me Page.](assets/images/contactme-screenshot.png)
 
@@ -125,7 +125,7 @@ There is no testing involved for this application.
 
 GitHub Repository: <https://github.com/vaughanknouse/React-Portfolio>
 
-Deployed Application Link: \*\*\*
+Netlify Deployed Application Link: \*\*\*
 
 ## Credits \*\*\*
 
