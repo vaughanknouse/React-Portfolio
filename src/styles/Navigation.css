@@ -1,0 +1,5 @@
+/* Style for active navigation links */
+.active {
+  font-weight: bold;
+  color: #007bff; /* Change the color of the active link to blue */
+}
