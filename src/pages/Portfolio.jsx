@@ -1,50 +1,78 @@
-import React from 'react'; // Import the React library
-import Project from '../components/Project'; // Import the Project component
-// import '../styles/Portfolio.css'; // Import the styles for the Portfolio component
+import React from 'react';
+import Project from '../components/Project';
+import advancedCssPortfolioImage from '../assets/images/advanced-css-portfolio.png';
+import horiseonImage from '../assets/images/horiseon.png';
+import myNewWebsiteImage from '../assets/images/my-new-website.png';
+import tripmasterImage from '../assets/images/tripmaster.png';
+import marvelFanPageImage from '../assets/images/marvel-fan-page.png';
+import gitFitImage from '../assets/images/gitfit.png';
 
-// Create a Portfolio component using a const declaration
 const Portfolio = () => {
   const projects = [
-    // Array of project objects
     {
-      title: 'Project One',
-      image: 'path_to_image_1.jpg',
-      description: 'Built with React, Node.js, and MongoDB.',
-      liveLink: 'https://liveproject1.com',
-      repoLink: 'https://github.com/repo1',
+      title: 'Advanced CSS Portfolio',
+      image: advancedCssPortfolioImage,
+      liveLink: 'https://vaughanknouse.github.io/advanced-css-portfolio/',
+      githubLink: 'https://github.com/vaughanknouse/advanced-css-portfolio',
+      technologies: ['HTML', 'CSS', 'JavaScript'],
     },
     {
-      title: 'Project Two',
-      image: 'path_to_image_2.jpg',
-      description: 'Built with React and Express.',
-      liveLink: 'https://liveproject2.com',
-      repoLink: 'https://github.com/repo2',
+      title: 'Horiseon',
+      image: horiseonImage,
+      liveLink:
+        'https://vaughanknouse.github.io/Module01Challenge_Code-Refactor/',
+      githubLink:
+        'https://github.com/vaughanknouse/Module01Challenge_Code-Refactor',
+      technologies: ['HTML', 'CSS', 'SEO'],
+    },
+    {
+      title: 'My New Website',
+      image: myNewWebsiteImage,
+      liveLink: 'https://vaughanknouse.github.io/Module1MiniProject/',
+      githubLink: 'https://github.com/vaughanknouse/Module1MiniProject',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'React'],
+    },
+    {
+      title: 'Tripmaster',
+      image: tripmasterImage,
+      liveLink: 'https://tripmaster-w7ep.onrender.com/',
+      githubLink: 'https://github.com/vaughanknouse/tripmaster',
+      technologies: ['Node.js', 'Express', 'MongoDB', 'React'],
+    },
+    {
+      title: 'Marvel Fan Page',
+      image: marvelFanPageImage,
+      liveLink: 'https://melivesel.github.io/collaboration/',
+      githubLink: 'https://github.com/melivesel/collaboration',
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+    },
+    {
+      title: 'GitFit',
+      image: gitFitImage,
+      liveLink: 'https://github.com/cococnde/git-fit',
+      githubLink: 'https://github.com/cococnde/git-fit',
+      technologies: ['HTML', 'CSS', 'Node.js', 'Express'],
     },
   ];
 
-  // Render the portfolio section
   return (
-    <section id='portfolio'>
-      <h2>Portfolio</h2>
-      <div className='projects'>
-        {projects.map(
-          (
-            project // Map over the projects array
-          ) => (
-            <Project // Render a Project component for each project
-              key={project.title} // Using title as a key, assuming it's unique
+    <section id='portfolio' className='container my-5'>
+      <h2 className='text-center mb-4'>Portfolio</h2>
+      <div className='row'>
+        {projects.map((project, index) => (
+          <div className='col-md-4' key={index}>
+            <Project
               title={project.title}
               image={project.image}
-              description={project.description}
               liveLink={project.liveLink}
-              repoLink={project.repoLink}
+              githubLink={project.githubLink}
+              technologies={project.technologies} // Pass the technologies prop
             />
-          )
-        )}
+          </div>
+        ))}
       </div>
     </section>
   );
 };
 
-// Export the Portfolio component to use it in the App component
 export default Portfolio;

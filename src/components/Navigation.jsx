@@ -1,55 +1,44 @@
-import React from 'react'; // Import React library
-import { NavLink } from 'react-router-dom'; // Import NavLink component from React Router library
-import '../styles/Navigation.css'; // Import the styles for the Navigation component
-import logo from '../assets/images/logo.png'; // Import the logo image file
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-// Define the Navigation component using a const declaration
 const Navigation = () => {
   return (
-    <nav>
-      <img src={logo} alt='Logo' className='logo' />{' '}
-      {/* Display the logo image */}
-      <ul>
-        <li>
-          <NavLink
-            to='/about' // Set the path to the About page
-            className={({ isActive }) => (isActive ? 'active' : '')}>
-            {' '}
-            {/* Set the class name to 'active' if the link is active */}
-            About
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/portfolio' // Set the path to the Portfolio page
-            className={({ isActive }) => (isActive ? 'active' : '')}>
-            {' '}
-            {/* Set the class name to 'active' if the link is active */}
-            Portfolio {/* Display the Portfolio link */}
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/contact' // Set the path to the Contact page
-            className={({ isActive }) => (isActive ? 'active' : '')}>
-            {' '}
-            {/* Set the class name to 'active' if the link is active */}
-            Contact {/* Display the Contact link */}
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/resume' // Set the path to the Resume page
-            className={({ isActive }) => (isActive ? 'active' : '')}>
-            {' '}
-            {/* Set the class name to 'active' if the link is active */}
-            Resume {/* Display the Resume link */}
-          </NavLink>
-        </li>
-      </ul>
+    <nav className='navbar navbar-expand-lg navbar-dark'>
+      <div className='container'>
+        <button
+          className='navbar-toggler'
+          type='button'
+          data-bs-toggle='collapse'
+          data-bs-target='#navbarNav'>
+          <span className='navbar-toggler-icon'></span>
+        </button>
+        <div className='collapse navbar-collapse' id='navbarNav'>
+          <ul className='navbar-nav mx-auto'>
+            <li className='nav-item'>
+              <Link className='nav-link' to='/'>
+                About Me
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link className='nav-link' to='/portfolio'>
+                Portfolio
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link className='nav-link' to='/contact'>
+                Contact
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link className='nav-link' to='/resume'>
+                Resume
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   );
 };
 
-// Export the Navigation component as the default export so it can be used in other files
 export default Navigation;

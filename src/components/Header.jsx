@@ -1,15 +1,66 @@
-import React from 'react'; // Import React library
-import Navigation from './Navigation'; // Import the Navigation component
-// import '../styles/Header.css'; // Import the styles for the Header component
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import logo from '../assets/images/logo.png'; // Import the logo image
 
-// Define the Header component
 const Header = () => {
   return (
-    <header>
-      <h1>Vaughan Knouse</h1> {/* Display the name of the portfolio owner */}
-      <Navigation /> {/* Render the Navigation component */}
+    <header className='bg-dark text-white p-3'>
+      <div className='container d-flex justify-content-between align-items-center'>
+        <div className='d-flex align-items-center'>
+          <NavLink to='/'>
+            <img
+              src={logo}
+              alt="Vaughan's Logo"
+              style={{ height: '50px', marginRight: '10px' }}
+            />{' '}
+            {/* Adjust the height and spacing */}
+          </NavLink>
+          <h1 className='mb-0'>Vaughan Knouse</h1>{' '}
+          {/* Remove margin-bottom for better alignment */}
+        </div>
+        <nav>
+          <ul className='nav'>
+            <li className='nav-item'>
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
+                to='/'>
+                About Me
+              </NavLink>
+            </li>
+            <li className='nav-item'>
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
+                to='/portfolio'>
+                Portfolio
+              </NavLink>
+            </li>
+            <li className='nav-item'>
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
+                to='/contact'>
+                Contact
+              </NavLink>
+            </li>
+            <li className='nav-item'>
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
+                to='/resume'>
+                Resume
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };
-// Export the Header component as the default export so it can be used in other files
+
 export default Header;

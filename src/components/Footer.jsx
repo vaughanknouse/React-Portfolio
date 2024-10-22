@@ -1,21 +1,36 @@
-import React from 'react'; // Import the React library
-// import '../styles/Footer.css'; // Import the styles for the Footer component
+import React from 'react';
 
-// Create a Footer component
 const Footer = () => {
   return (
-    <footer>
-      <a href='https://github.com/vaughanknouse'>GitHub</a> {/* GitHub link */}
-      <a href='https://linkedin.com/in/vaughanknouse'>LinkedIn</a>{' '}
-      {/* LinkedIn link */}
-      <a href='https://stackoverflow.com/users/vaughanknouse'>
-        Stack Overflow
-      </a>{' '}
-      {/* Stack Overflow link */}
-      <p>&copy; 2024 Vaughan Knouse</p> {/* Display the current year */}
+    <footer className='bg-dark text-white text-center p-3 mt-4'>
+      <p>
+        © {new Date().getFullYear()} Vaughan's Portfolio. All rights reserved.
+      </p>
+      <div>
+        <a
+          href='https://github.com/vaughan'
+          className='text-white mx-2'
+          target='_blank'
+          rel='noopener noreferrer'>
+          GitHub
+        </a>
+        <a
+          href='https://linkedin.com/in/vaughan'
+          className='text-white mx-2'
+          target='_blank'
+          rel='noopener noreferrer'>
+          LinkedIn
+        </a>
+        <a
+          href='https://stackoverflow.com/users/vaughan'
+          className='text-white mx-2'
+          target='_blank'
+          rel='noopener noreferrer'>
+          Stack Overflow
+        </a>
+      </div>
     </footer>
   );
 };
 
-// Export the Footer component as the default export so it can be used in other files
 export default Footer;

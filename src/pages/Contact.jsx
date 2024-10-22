@@ -1,112 +1,151 @@
-import React, { useState } from 'react'; // Import React and useState hook for managing form data
-// import '../styles/Contact.css'; // Import the styles for the Contact component
+import React, { useState } from 'react';
 
-// Create a functional component for the Contact section
 const Contact = () => {
-  // Initialize state for form data and errors
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
-  const [errors, setErrors] = useState({}); // State for validation errors
+  const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
-  // Handle changes in the form inputs
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  // Validate the email format using regex
   const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email validation regex
-    return regex.test(email); // Returns true if email matches the regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
-  // Validate required fields on blur
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    if (name === 'email' && value && !validateEmail(value)) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        email: 'Invalid email address',
+      }));
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+    }
+  };
+
   const handleBlur = (e) => {
     const { name, value } = e.target;
-    const newErrors = { ...errors };
 
     if (!value) {
-      newErrors[name] = `${
-        name.charAt(0).toUpperCase() + name.slice(1)
-      } is required`;
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: `${name.charAt(0).toUpperCase() + name.slice(1)} is required`,
+      }));
     } else if (name === 'email' && !validateEmail(value)) {
-      newErrors[name] = 'Email is invalid';
-    } else {
-      delete newErrors[name]; // Remove error if field is valid
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        email: 'Invalid email address',
+      }));
     }
-
-    setErrors(newErrors); // Update errors state
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = {};
-
-    // Validate form fields
-    if (!formData.name) newErrors.name = 'Name is required';
-    if (!formData.email) {
-      newErrors.email = 'Email is required';
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Email is invalid';
-    }
-    if (!formData.message) newErrors.message = 'Message is required';
-
-    setErrors(newErrors);
-
-    // Proceed with form submission if no errors
-    if (Object.keys(newErrors).length === 0) {
-      alert('Form submitted successfully!'); // Reset form fields after submission
-    }
+    alert('Form submitted (no backend to process data yet)');
+    setSubmitted(true);
+    setFormData({ name: '', email: '', message: '' });
   };
 
-  // Render the contact section
   return (
-    <section>
-      <h2>Contact</h2>
-      <form onSubmit={handleSubmit}>
-        {' '}
-        <input
-          type='text'
-          name='name'
-          placeholder='Your Name'
-          value={formData.name}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          required
-        />
-        {errors.name && <p className='error'>{errors.name}</p>}{' '}
-        <input
-          type='email'
-          name='email'
-          placeholder='Your Email'
-          value={formData.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          required
-        />
-        {errors.email && <p className='error'>{errors.email}</p>}{' '}
-        <textarea
-          name='message'
-          placeholder='Your Message'
-          value={formData.message}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          required
-        />
-        {errors.message && <p className='error'>{errors.message}</p>}{' '}
-        <button className='btn send-button' type='submit'></button>{' '}
-      </form>
-      <div>
-        {' '}
-        {/* Display contact information */}
-        <p>Email: vaughanknouse@gmail.com</p>
-        <p>Phone: 202-365-3858</p>
+    <div id='contact' className='container my-5 bg-light p-4 rounded'>
+      <h2 className='text-center mb-4'>Contact Me</h2>
+
+      <div className='row'>
+        {/* Left Half - Contact Message */}
+        <div className='col-md-6'>
+          <h4 className='contact-header'>Get in Touch</h4>
+          <p className='contact-text'>
+            Please feel free to contact me at{' '}
+            <a href='mailto:vaughanknouse@gmail.com' className='contact-email'>
+              vaughanknouse@gmail.com
+            </a>{' '}
+            if you have any questions or comments.
+          </p>
+        </div>
+
+        {/* Right Half - Contact Form */}
+        <div className='col-md-6'>
+          {submitted && (
+            <div className='alert alert-success'>
+              Your message has been sent!
+            </div>
+          )}
+
+          <div className='card p-4 shadow-lg rounded'>
+            <form className='mb-4' onSubmit={handleSubmit}>
+              <div className='mb-3'>
+                <label htmlFor='name' className='form-label'>
+                  Name
+                </label>
+                <input
+                  type='text'
+                  id='name'
+                  name='name'
+                  className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                  value={formData.name}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  required
+                />
+                {errors.name && (
+                  <div className='invalid-feedback'>{errors.name}</div>
+                )}
+              </div>
+
+              <div className='mb-3'>
+                <label htmlFor='email' className='form-label'>
+                  Email
+                </label>
+                <input
+                  type='email'
+                  id='email'
+                  name='email'
+                  className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+                  value={formData.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  required
+                />
+                {errors.email && (
+                  <div className='invalid-feedback'>{errors.email}</div>
+                )}
+              </div>
+
+              <div className='mb-3'>
+                <label htmlFor='message' className='form-label'>
+                  Message
+                </label>
+                <textarea
+                  id='message'
+                  name='message'
+                  rows='4'
+                  className={`form-control ${
+                    errors.message ? 'is-invalid' : ''
+                  }`}
+                  value={formData.message}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  required
+                />
+                {errors.message && (
+                  <div className='invalid-feedback'>{errors.message}</div>
+                )}
+              </div>
+
+              <button type='submit' className='btn btn-primary btn-lg'>
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-// Export the Contact component for use in other parts of the application
 export default Contact;

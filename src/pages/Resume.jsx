@@ -1,28 +1,34 @@
 import React from 'react';
-// import '../styles/Resume.css'; // Import the styles for the Resume component
+import resumePDF from '../assets/documents/Vaughan Knouse_Web Developer_Resume.pdf'; // Adjust the path as necessary
 
-// Define the Resume component
 const Resume = () => {
-  // Create an array of proficiencies (skills)
-  const proficiencies = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'];
+  const proficiencies = [
+    'HTML',
+    'CSS',
+    'JavaScript',
+    'React',
+    'Node.js',
+    'MongoDB',
+  ];
 
-  // Render the Resume component
   return (
-    <section className='resume-section'>
+    <section className='container my-5'>
       <h2>Resume</h2>
-      {/* Link to download the resume with an aria-label for better accessibility */}
-      <a href='/resume.pdf' download aria-label='Download Resume'>
-        Download
-      </a>
-      <h3>Proficiencies:</h3>
+      <p>
+        Download my resume{' '}
+        <a href={resumePDF} download>
+          here
+        </a>
+        .
+      </p>
+      <h3>Proficiencies</h3>
       <ul>
-        {/* Use 'skill' itself as a key for unique identification */}
-        {proficiencies.map((skill) => (
-          <li key={skill}>{skill}</li>
+        {proficiencies.map((skill, index) => (
+          <li key={index}>{skill}</li>
         ))}
       </ul>
     </section>
   );
 };
 
-export default Resume; // Export the Resume component for use in other components or files
+export default Resume;

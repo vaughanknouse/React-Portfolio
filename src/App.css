@@ -1,42 +1,242 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* General Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f7fafc;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6; /* Improved line height for better readability */
+}
+
+/* About Me Section */
+#about-me {
+  padding: 60px 20px; /* Increased padding for better spacing */
+  background-color: #e7e9eb; /* Light background color */
+}
+
+.about-me-content {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  text-align: left; /* Left align text */
+  flex-direction: row; /* Horizontal layout */
+  max-width: 1200px; /* Limit max width */
+  margin: 0 auto; /* Center content on page */
+}
+
+.profile-img {
+  border-radius: 50%; /* Circular image */
+  width: 200px; /* Fixed width for profile image */
+  height: 200px; /* Fixed height for profile image */
+  margin-right: 30px; /* Space to the right of the image */
+  border: 3px solid #0f4c81; /* Optional border to match theme */
+}
+
+.about-text {
+  flex: 1; /* Allow this section to grow */
+}
+
+.about-title {
+  font-size: 2.5rem; /* Title size */
+  font-weight: bold; /* Bold title */
+  color: #0f4c81; /* Title color to match theme */
+  margin-bottom: 10px; /* Space below title */
+}
+
+.about-description {
+  font-size: 1.1rem; /* Font size for description text */
+  line-height: 1.6; /* Improved line spacing */
+  color: #333333; /* Text color */
+  max-width: 800px; /* Limit width for better readability */
+  margin: 0 0 20px; /* Spacing below description */
+}
+
+.skills {
+  margin-top: 20px; /* Space above skills */
+}
+
+.skills-title {
+  font-size: 1.5rem; /* Skills title size */
+  color: #0f4c81; /* Skills title color */
+  margin-bottom: 10px; /* Space below title */
+}
+
+.skills-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+}
+
+.skills-list li {
+  font-size: 1rem; /* Font size for skills */
+  color: #333; /* Color for skills */
+  margin-bottom: 5px; /* Space between skills */
+}
+
+.contact-links {
+  margin-top: 20px; /* Space above contact section */
+}
+
+.contact-title {
+  font-size: 1.5rem; /* Contact title size */
+  color: #0f4c81; /* Contact title color */
+  margin-bottom: 10px; /* Space below title */
+}
+
+.contact-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+}
+
+.contact-list li {
+  font-size: 1rem; /* Font size for contact links */
+  color: #333; /* Color for contact links */
+  margin-bottom: 5px; /* Space between links */
+}
+
+.contact-list a {
+  color: #007bff; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.contact-list a:hover,
+.contact-list a:focus {
+  color: #f2545b; /* Change color on hover */
+  transition: color 0.3s ease-in-out; /* Smooth transition */
+  outline: 2px solid #f2545b; /* Add focus outline for accessibility */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-me-content {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .profile-img {
+    margin-bottom: 20px; /* Space below the image when stacked */
+  }
+}
+
+/* Portfolio Section */
+#portfolio .card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+#portfolio .card:hover {
+  transform: scale(1.05);
+}
+
+#portfolio .card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0f4c81;
+}
+
+.project-card {
+  transition: transform 0.2s;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Flexbox Container for Portfolio Projects */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.flex-item {
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
   text-align: center;
+  color: white;
+  text-decoration: none;
+  background-size: cover;
+  background-position: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Contact Message Styles */
+.contact-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0f4c81;
+  margin-bottom: 10px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #333333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Contact Form */
+#contact {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .card {
-  padding: 2em;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.read-the-docs {
-  color: #888;
+.alert {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+#contact .form-control {
+  border-radius: 4px;
+  padding: 10px;
+}
+
+#contact .form-control.is-invalid {
+  border-color: #f2545b;
+}
+
+#contact .invalid-feedback {
+  color: #f2545b;
+  padding: 5px;
+}
+
+/* Additional Styles for Project Backgrounds */
+.horiseon {
+  background-image: url('../assets/images/horiseon.png');
+}
+
+.my-new-website {
+  background-image: url('../assets/images/my-new-website.png');
+}
+
+.tripmaster {
+  background-image: url('../assets/images/tripmaster.png');
+}
+
+.marvel-fan-page {
+  background-image: url('../assets/images/marvel-fan-page.png');
+}
+
+.gitfit {
+  background-image: url('../assets/images/gitfit.png');
 }

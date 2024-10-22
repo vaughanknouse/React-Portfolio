@@ -1,35 +1,39 @@
-import React from 'react'; // Import React to use JSX syntax and create components
-import PropTypes from 'prop-types'; // Import PropTypes for type checking
-// import '../styles/Project.css'; // Import the styles for the Project component
+// Project.js
+import React from 'react';
 
-// Define the Project component
-const Project = ({ title, imageUrl, liveLink, githubLink }) => {
+const Project = ({ title, image, liveLink, githubLink, technologies }) => {
   return (
-    <div className='project'>
-      <h3>{title}</h3> {/* Display the project title */}
-      <img src={imageUrl} alt={title} /> {/* Display the project image */}
-      <div>
-        {/* Container div for links */}
-        <a href={liveLink} target='_blank' rel='noopener noreferrer'>
-          Live Application
-        </a>
-        {/* Link to live application */}
-        <a href={githubLink} target='_blank' rel='noopener noreferrer'>
-          GitHub Repository
-        </a>
-        {/* Link to GitHub repository */}
+    <div className='card mb-4 shadow-sm'>
+      <img
+        src={image}
+        className='card-img-top'
+        alt={title}
+        style={{ height: '200px', objectFit: 'cover' }}
+      />
+      <div className='card-body'>
+        <h5 className='card-title'>{title}</h5>
+        <p className='card-text'>
+          <strong>Technologies Used:</strong> {technologies.join(', ')}
+        </p>
+        <div className='d-flex justify-content-between'>
+          <a
+            href={liveLink}
+            className='btn btn-primary'
+            target='_blank'
+            rel='noopener noreferrer'>
+            Live Demo
+          </a>
+          <a
+            href={githubLink}
+            className='btn btn-secondary'
+            target='_blank'
+            rel='noopener noreferrer'>
+            GitHub
+          </a>
+        </div>
       </div>
     </div>
   );
 };
 
-// Define the expected prop types for the Project component
-Project.propTypes = {
-  title: PropTypes.string.isRequired, // Title of the project, required
-  imageUrl: PropTypes.string.isRequired, // URL of the project image, required
-  liveLink: PropTypes.string.isRequired, // URL for the live application, required
-  githubLink: PropTypes.string.isRequired, // URL for the GitHub repository, required
-};
-
-// Export the Project component as the default export for use in other parts of the application
 export default Project;
