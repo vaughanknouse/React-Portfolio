@@ -1,6 +1,7 @@
+/* Global Styles */
 :root {
   --primary-color: #0f4c81;
-  --secondary-color: #f2545b;
+  --secondary-color: #0077ff;
   --link-color: #007bff;
   --background-color: #f7fafc;
   --text-color: #333333;
@@ -9,97 +10,67 @@
   --button-bg-color: #007bff;
   --spacing-small: 10px;
   --spacing-medium: 20px;
+  --spacing-large: 30px; /* Added for more spacing options */
 }
 
-/* General Styles */
+html,
 body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+  box-sizing: border-box; /* Helps with consistent sizing */
 }
 
-h1,
-h2,
-h3 {
-  font-family: 'Montserrat', sans-serif;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-a {
-  color: var(--primary-color);
-  text-decoration: none;
+/* Main Wrapper */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the wrapper covers the full height */
 }
 
-a:hover,
-a:focus {
-  color: var(--secondary-color);
-  transition: color 0.3s ease-in-out;
-  outline: 2px solid var(--secondary-color); /* Changed for accessibility */
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Aligns items with space in between */
+  align-items: center; /* Center align items vertically */
+  padding: var(--spacing-small) var(--spacing-medium); /* Adjusted padding for navbar */
 }
 
-/* Header Styles */
-header {
-  background-color: var(--header-bg-color);
-  padding: var(--spacing-small) 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Main Content Area */
+.main {
+  flex: 1; /* Allows the main section to grow and fill available space */
+  padding: var(--spacing-medium);
 }
 
-header h1 {
-  color: #ffffff;
-  font-size: 2rem;
-  margin: 0;
-}
-
-.nav-link {
-  color: #ffffff;
-  font-size: 1.1rem;
-  margin: 0 var(--spacing-small);
-}
-
-.nav-link.active {
-  font-weight: bold;
-  color: var(--link-color);
-  text-decoration: underline;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: var(--secondary-color);
+/* Section Styles */
+section {
+  margin: var(--spacing-large) 0; /* Uniform margin for sections */
 }
 
 /* Footer Styles */
 footer {
-  background-color: var(--footer-bg-color);
-  color: #ffffff;
+  margin-top: auto; /* Ensures footer stays at the bottom */
   padding: var(--spacing-medium);
-  text-align: center;
+  background-color: var(--footer-bg-color);
 }
 
 /* Responsive Media Queries */
-@media (min-width: 768px) {
-  header h1 {
-    font-size: 2.5rem;
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: flex-start; /* Align items to the start */
   }
 
   .nav-link {
-    font-size: 1.2rem;
+    margin: var(--spacing-small) 0; /* Space out links in column layout */
   }
-}
 
-/* Button Styles */
-.button {
-  background-color: var(--button-bg-color);
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: var(--spacing-small) var(--spacing-medium);
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-}
-
-.button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
+  .wrapper {
+    padding: var(--spacing-medium); /* Add padding for small screens */
+  }
 }

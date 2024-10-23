@@ -1,11 +1,110 @@
 /* General Styles */
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #f7fafc;
-  color: #333333;
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
-  line-height: 1.6; /* Improved line height for better readability */
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--secondary-color);
+  transition: color 0.3s ease-in-out;
+  outline: 2px solid var(--secondary-color); /* For accessibility */
+}
+
+/* Header Styles */
+header {
+  background-color: var(--header-bg-color);
+  padding: var(--spacing-small) 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin: 0;
+}
+
+nav {
+  margin-left: auto; /* Pushes nav to the right */
+  display: flex; /* Ensures nav items are in a row */
+}
+
+.nav-link {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin: 0 var(--spacing-small);
+  padding: var(--spacing-small); /* Add padding for better click area */
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color); /* Optional hover effect */
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--footer-bg-color);
+  color: #ffffff;
+  padding: var(--spacing-medium);
+  text-align: center;
+  font-size: 1rem; /* Ensures the font is readable */
+}
+
+footer a {
+  transition: color 0.3s ease-in-out; /* Smooth transition for links */
+}
+
+footer a:hover {
+  color: var(--link-color); /* Change color on hover */
+}
+
+footer .text-white {
+  opacity: 0.8; /* Slightly reduce opacity for a softer look */
+}
+
+footer .text-white:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+/* Button Styles */
+.button {
+  background-color: var(--button-bg-color);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: var(--spacing-small) var(--spacing-medium);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 /* About Me Section */
@@ -15,101 +114,53 @@ body {
 }
 
 .about-me-content {
-  display: flex; /* Use flexbox for alignment */
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
-  text-align: left; /* Left align text */
-  flex-direction: row; /* Horizontal layout */
-  max-width: 1200px; /* Limit max width */
-  margin: 0 auto; /* Center content on page */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .profile-img {
-  border-radius: 50%; /* Circular image */
-  width: 200px; /* Fixed width for profile image */
-  height: 200px; /* Fixed height for profile image */
-  margin-right: 30px; /* Space to the right of the image */
-  border: 3px solid #0f4c81; /* Optional border to match theme */
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-right: 30px;
+  border: 3px solid var(--primary-color);
 }
 
 .about-text {
-  flex: 1; /* Allow this section to grow */
+  flex: 1;
 }
 
 .about-title {
-  font-size: 2.5rem; /* Title size */
-  font-weight: bold; /* Bold title */
-  color: #0f4c81; /* Title color to match theme */
-  margin-bottom: 10px; /* Space below title */
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 10px;
 }
 
 .about-description {
-  font-size: 1.1rem; /* Font size for description text */
-  line-height: 1.6; /* Improved line spacing */
-  color: #333333; /* Text color */
-  max-width: 800px; /* Limit width for better readability */
-  margin: 0 0 20px; /* Spacing below description */
-}
-
-.skills {
-  margin-top: 20px; /* Space above skills */
-}
-
-.skills-title {
-  font-size: 1.5rem; /* Skills title size */
-  color: #0f4c81; /* Skills title color */
-  margin-bottom: 10px; /* Space below title */
-}
-
-.skills-list {
-  list-style-type: none; /* Remove bullet points */
-  padding: 0; /* Remove default padding */
-}
-
-.skills-list li {
-  font-size: 1rem; /* Font size for skills */
-  color: #333; /* Color for skills */
-  margin-bottom: 5px; /* Space between skills */
-}
-
-.contact-links {
-  margin-top: 20px; /* Space above contact section */
-}
-
-.contact-title {
-  font-size: 1.5rem; /* Contact title size */
-  color: #0f4c81; /* Contact title color */
-  margin-bottom: 10px; /* Space below title */
-}
-
-.contact-list {
-  list-style-type: none; /* Remove bullet points */
-  padding: 0; /* Remove default padding */
-}
-
-.contact-list li {
-  font-size: 1rem; /* Font size for contact links */
-  color: #333; /* Color for contact links */
-  margin-bottom: 5px; /* Space between links */
-}
-
-.contact-list a {
-  color: #007bff; /* Link color */
-  text-decoration: none; /* Remove underline */
-}
-
-.contact-list a:hover,
-.contact-list a:focus {
-  color: #f2545b; /* Change color on hover */
-  transition: color 0.3s ease-in-out; /* Smooth transition */
-  outline: 2px solid #f2545b; /* Add focus outline for accessibility */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  max-width: 800px;
+  margin: 0 0 20px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem; /* Smaller size for smaller screens */
+  }
+  .nav-link {
+    font-size: 1rem; /* Adjust link sizes */
+  }
   .about-me-content {
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
   }
 
   .profile-img {
@@ -125,56 +176,27 @@ body {
 
 #portfolio .card:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced the shadow effect */
 }
 
 #portfolio .card-title {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #0f4c81;
-}
-
-.project-card {
-  transition: transform 0.2s;
-}
-
-.project-card:hover {
-  transform: scale(1.05);
-}
-
-.project-card img {
-  height: auto;
-  max-width: 100%;
-}
-
-/* Flexbox Container for Portfolio Projects */
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.flex-item {
-  width: calc(33.33% - 10px);
-  margin-bottom: 20px;
-  text-align: center;
-  color: white;
-  text-decoration: none;
-  background-size: cover;
-  background-position: center;
+  color: var(--primary-color);
 }
 
 /* Contact Message Styles */
 .contact-header {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #0f4c81;
+  color: var(--primary-color);
   margin-bottom: 10px;
 }
 
 .contact-text {
   font-size: 1.1rem;
   line-height: 1.5;
-  color: #333333;
+  color: var(--text-color);
 }
 
 /* Contact Form */
@@ -194,21 +216,14 @@ body {
   text-align: center;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border: none;
-  padding: 10px 20px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
 #contact .form-control {
   border-radius: 4px;
   padding: 10px;
+}
+
+#contact .form-control:focus {
+  border-color: var(--link-color); /* Change border color on focus */
+  box-shadow: 0 0 5px var(--link-color); /* Add a subtle shadow */
 }
 
 #contact .form-control.is-invalid {
@@ -223,20 +238,40 @@ body {
 /* Additional Styles for Project Backgrounds */
 .horiseon {
   background-image: url('../assets/images/horiseon.png');
+  background-size: cover; /* Ensures image covers the entire area */
+  background-position: center; /* Centers the image */
+  min-height: 200px; /* Ensures a minimum height */
 }
 
 .my-new-website {
   background-image: url('../assets/images/my-new-website.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 200px;
 }
 
 .tripmaster {
   background-image: url('../assets/images/tripmaster.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 200px;
 }
 
 .marvel-fan-page {
   background-image: url('../assets/images/marvel-fan-page.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 200px;
 }
 
 .gitfit {
   background-image: url('../assets/images/gitfit.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 200px;
+}
+
+/* Responsive Media Queries */
+@media (min-width: 768px) {
+  /* You can add media queries that apply to the whole app here */
 }

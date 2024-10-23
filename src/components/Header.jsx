@@ -1,65 +1,38 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/images/logo.png'; // Import the logo image
+import { Navbar, Nav, Container } from 'react-bootstrap'; // Import Bootstrap components
 
 const Header = () => {
   return (
-    <header className='bg-dark text-white p-3'>
-      <div className='container d-flex justify-content-between align-items-center'>
-        <div className='d-flex align-items-center'>
-          <NavLink to='/'>
-            <img
-              src={logo}
-              alt="Vaughan's Logo"
-              style={{ height: '50px', marginRight: '10px' }}
-            />{' '}
-            {/* Adjust the height and spacing */}
-          </NavLink>
-          <h1 className='mb-0'>Vaughan Knouse</h1>{' '}
-          {/* Remove margin-bottom for better alignment */}
-        </div>
-        <nav>
-          <ul className='nav'>
-            <li className='nav-item'>
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? 'active' : ''}`
-                }
-                to='/'>
-                About Me
-              </NavLink>
-            </li>
-            <li className='nav-item'>
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? 'active' : ''}`
-                }
-                to='/portfolio'>
-                Portfolio
-              </NavLink>
-            </li>
-            <li className='nav-item'>
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? 'active' : ''}`
-                }
-                to='/contact'>
-                Contact
-              </NavLink>
-            </li>
-            <li className='nav-item'>
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? 'active' : ''}`
-                }
-                to='/resume'>
-                Resume
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <Navbar bg='dark' variant='dark' className='p-3'>
+      <Container className='justify-content-between'>
+        <Navbar.Brand as={NavLink} to='/'>
+          <img
+            src={logo}
+            alt="Vaughan's Logo"
+            style={{ height: '50px', marginRight: '10px' }}
+          />
+          Vaughan Knouse
+        </Navbar.Brand>
+        <Nav className='ml-auto'>
+          {' '}
+          {/* Align navigation to the right */}
+          <Nav.Link as={NavLink} to='/' aria-label='About Me'>
+            About Me
+          </Nav.Link>
+          <Nav.Link as={NavLink} to='/portfolio' aria-label='Portfolio'>
+            Portfolio
+          </Nav.Link>
+          <Nav.Link as={NavLink} to='/contact' aria-label='Contact'>
+            Contact
+          </Nav.Link>
+          <Nav.Link as={NavLink} to='/resume' aria-label='Resume'>
+            Resume
+          </Nav.Link>
+        </Nav>
+      </Container>
+    </Navbar>
   );
 };
 
