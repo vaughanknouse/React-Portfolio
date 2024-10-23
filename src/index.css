@@ -18,6 +18,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* Helps with consistent sizing */
+  line-height: 1.6; /* Improve readability */
 }
 
 *,
@@ -39,6 +40,14 @@ body {
   justify-content: space-between; /* Aligns items with space in between */
   align-items: center; /* Center align items vertically */
   padding: var(--spacing-small) var(--spacing-medium); /* Adjusted padding for navbar */
+  background-color: var(--header-bg-color); /* Added background color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+.nav-link {
+  color: white; /* Ensuring links are visible */
+  padding: var(--spacing-small); /* Consistent padding */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 /* Main Content Area */
@@ -57,6 +66,8 @@ footer {
   margin-top: auto; /* Ensures footer stays at the bottom */
   padding: var(--spacing-medium);
   background-color: var(--footer-bg-color);
+  color: white; /* Ensuring footer text is readable */
+  text-align: center; /* Center text for footer */
 }
 
 /* Responsive Media Queries */
@@ -68,6 +79,7 @@ footer {
 
   .nav-link {
     margin: var(--spacing-small) 0; /* Space out links in column layout */
+    width: 100%; /* Full width for better click area */
   }
 
   .wrapper {

@@ -13,10 +13,10 @@ const Resume = () => {
 
   return (
     <section className='container my-5'>
-      <h2>Resume</h2>
-      <p>
+      <h2 className='text-center mb-4'>Resume</h2>
+      <p className='text-center'>
         Download my resume{' '}
-        <a href={resumePDF} download>
+        <a href={resumePDF} download className='text-primary'>
           here
         </a>
         .

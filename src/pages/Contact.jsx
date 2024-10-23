@@ -18,6 +18,7 @@ const Contact = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
+    // Clear errors on input change
     if (name === 'email' && value && !validateEmail(value)) {
       setErrors((prevErrors) => ({
         ...prevErrors,
@@ -25,6 +26,16 @@ const Contact = () => {
       }));
     } else {
       setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+    }
+
+    // Check for message length
+    if (name === 'message' && value.length < 10) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        message: 'Message must be at least 10 characters long',
+      }));
+    } else if (name === 'message') {
+      setErrors((prevErrors) => ({ ...prevErrors, message: undefined }));
     }
   };
 
@@ -41,14 +52,28 @@ const Contact = () => {
         ...prevErrors,
         email: 'Invalid email address',
       }));
+    } else if (name === 'message' && value.length < 10) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        message: 'Message must be at least 10 characters long',
+      }));
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Form submitted (no backend to process data yet)');
+
+    // Log the form data or replace with an API call.
+    console.log('Form submitted:', formData);
+
     setSubmitted(true);
     setFormData({ name: '', email: '', message: '' });
+    setErrors({}); // Clear errors after submission
+
+    // Hide the success message after 3 seconds
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 3000);
   };
 
   return (
@@ -57,9 +82,13 @@ const Contact = () => {
 
       <div className='row'>
         {/* Left Half - Contact Message */}
-        <div className='col-md-6'>
-          <h4 className='contact-header'>Get in Touch</h4>
-          <p className='contact-text'>
+        <div className='col-md-6 d-flex flex-column justify-content-center align-items-center'>
+          <h4
+            className='contact-header text-center'
+            style={{ fontSize: '2rem' }}>
+            Get in Touch
+          </h4>
+          <p className='contact-text text-center' style={{ marginTop: '20px' }}>
             Please feel free to contact me at{' '}
             <a href='mailto:vaughanknouse@gmail.com' className='contact-email'>
               vaughanknouse@gmail.com

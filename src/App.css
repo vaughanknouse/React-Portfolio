@@ -51,12 +51,14 @@ nav {
   color: #ffffff;
   font-size: 1.1rem;
   margin: 0 var(--spacing-small);
-  padding: var(--spacing-small); /* Add padding for better click area */
+  padding: var(--spacing-small); /* Better click area */
+  position: relative; /* For pseudo-element hover effect */
+  transition: color 0.3s ease-in-out; /* Smooth transition for text color */
 }
 
 .nav-link.active {
   font-weight: bold;
-  color: var(--link-color);
+  color: var(--secondary-color); /* Change color to secondary when active */
   text-decoration: underline;
 }
 
@@ -64,6 +66,7 @@ nav {
 .nav-link:focus {
   color: var(--secondary-color);
   border-bottom: 2px solid var(--secondary-color); /* Optional hover effect */
+  transition: border-bottom 0.3s ease-in-out; /* Smooth transition for border */
 }
 
 /* Footer Styles */
@@ -103,8 +106,8 @@ footer .text-white:hover {
 }
 
 .button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
+  background-color: #0056b3; /* Adjusted color for better visibility */
+  transform: scale(1.03); /* Slight scale on hover for feedback */
 }
 
 /* About Me Section */
@@ -150,28 +153,15 @@ footer .text-white:hover {
   margin: 0 0 20px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.5rem; /* Smaller size for smaller screens */
-  }
-  .nav-link {
-    font-size: 1rem; /* Adjust link sizes */
-  }
-  .about-me-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .profile-img {
-    margin-bottom: 20px; /* Space below the image when stacked */
-  }
+/* Portfolio Section */
+#portfolio {
+  padding: var(--spacing-large) 0; /* Added padding to portfolio section */
 }
 
-/* Portfolio Section */
 #portfolio .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transitions for both effects */
+  margin-bottom: var(--spacing-medium); /* Spacing between cards */
 }
 
 #portfolio .card:hover {
@@ -185,25 +175,62 @@ footer .text-white:hover {
   color: var(--primary-color);
 }
 
-/* Contact Message Styles */
-.contact-header {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  margin-bottom: 10px;
+/* Resume Section */
+#resume {
+  padding: 60px 20px; /* Increased padding for better spacing */
+  background-color: #f8f9fa; /* Light background color for the resume section */
+  border-radius: 10px; /* Rounded corners for the resume section */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
 }
 
-.contact-text {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  color: var(--text-color);
+#resume h2 {
+  font-size: 2rem; /* Font size for the resume title */
+  color: var(--primary-color); /* Primary color for the title */
+  margin-bottom: 20px; /* Space below the title */
+  text-align: center; /* Center title */
 }
 
-/* Contact Form */
+#resume p {
+  font-size: 1.1rem; /* Font size for text */
+  line-height: 1.6; /* Line height for readability */
+  text-align: center; /* Center text */
+  margin-bottom: 20px; /* Space below paragraph */
+}
+
+#resume a {
+  color: var(--primary-color); /* Link color */
+  font-weight: bold; /* Make link bold */
+}
+
+#resume a:hover {
+  color: var(--secondary-color); /* Change color on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+#resume h3 {
+  font-size: 1.5rem; /* Font size for the proficiencies title */
+  margin-top: 30px; /* Space above the title */
+  margin-bottom: 10px; /* Space below the title */
+  color: var(--primary-color); /* Primary color for the proficiencies title */
+}
+
+#resume ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  text-align: center; /* Center the list */
+}
+
+#resume li {
+  font-size: 1.1rem; /* Font size for list items */
+  margin-bottom: 5px; /* Space between list items */
+}
+
+/* Contact Section */
 #contact {
   background-color: #f8f9fa;
   border-radius: 10px;
   padding: 20px;
+  text-align: center; /* Centering text within the contact section */
 }
 
 .card {
@@ -216,9 +243,25 @@ footer .text-white:hover {
   text-align: center;
 }
 
+.contact-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  /* Additional styles for centering can be added here if needed */
+}
+
+.contact-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* Contact Form */
 #contact .form-control {
   border-radius: 4px;
   padding: 10px;
+  transition: border-color 0.3s ease-in-out; /* Added transition */
 }
 
 #contact .form-control:focus {
@@ -235,43 +278,55 @@ footer .text-white:hover {
   padding: 5px;
 }
 
+/* Button Styles within Contact Form */
+#contact button {
+  width: 100%; /* Make button full-width */
+  margin-top: 10px; /* Spacing above button */
+}
+
 /* Additional Styles for Project Backgrounds */
-.horiseon {
-  background-image: url('../assets/images/horiseon.png');
+.project-card {
   background-size: cover; /* Ensures image covers the entire area */
   background-position: center; /* Centers the image */
   min-height: 200px; /* Ensures a minimum height */
+  border-radius: 10px; /* Rounded corners for project cards */
 }
 
-.my-new-website {
-  background-image: url('../assets/images/my-new-website.png');
-  background-size: cover;
-  background-position: center;
-  min-height: 200px;
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem; /* Smaller size for smaller screens */
+  }
+
+  .nav-link {
+    font-size: 1rem; /* Adjust link sizes */
+  }
+
+  .about-me-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-img {
+    margin-bottom: 20px; /* Space below the image when stacked */
+  }
+
+  /* Portfolio Cards */
+  #portfolio .card {
+    margin-bottom: var(--spacing-small); /* Reduce spacing on smaller screens */
+  }
+
+  #portfolio .card-title {
+    font-size: 1.1rem; /* Slightly smaller title for mobile */
+  }
+
+  /* Contact Form */
+  #contact .form-control {
+    font-size: 1rem; /* Adjust font size for mobile */
+  }
 }
 
-.tripmaster {
-  background-image: url('../assets/images/tripmaster.png');
-  background-size: cover;
-  background-position: center;
-  min-height: 200px;
-}
-
-.marvel-fan-page {
-  background-image: url('../assets/images/marvel-fan-page.png');
-  background-size: cover;
-  background-position: center;
-  min-height: 200px;
-}
-
-.gitfit {
-  background-image: url('../assets/images/gitfit.png');
-  background-size: cover;
-  background-position: center;
-  min-height: 200px;
-}
-
-/* Responsive Media Queries */
+/* Additional Media Queries for Larger Screens */
 @media (min-width: 768px) {
-  /* You can add media queries that apply to the whole app here */
+  /* Add more specific styles if needed */
 }

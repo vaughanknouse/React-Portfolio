@@ -59,14 +59,14 @@ const Portfolio = () => {
     <section id='portfolio' className='container my-5'>
       <h2 className='text-center mb-4'>Portfolio</h2>
       <div className='row'>
-        {projects.map((project, index) => (
-          <div className='col-md-4' key={index}>
+        {projects.map((project) => (
+          <div className='col-12 col-md-4 mb-4' key={project.title}>
             <Project
               title={project.title}
               image={project.image}
               liveLink={project.liveLink}
               githubLink={project.githubLink}
-              technologies={project.technologies} // Pass the technologies prop
+              technologies={project.technologies}
             />
           </div>
         ))}

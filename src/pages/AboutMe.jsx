@@ -5,7 +5,11 @@ const AboutMe = () => {
   return (
     <section id='about-me' className='container my-5'>
       <div className='about-me-content'>
-        <img src={avatar} alt='Vaughan' className='profile-img shadow' />
+        <img
+          src={avatar}
+          alt='Vaughan profile picture'
+          className='profile-img shadow'
+        />
         <div className='about-text'>
           <h2 className='about-title'>About Me</h2>
           <p className='about-description'>
